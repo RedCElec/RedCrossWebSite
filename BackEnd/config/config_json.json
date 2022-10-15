@@ -1,0 +1,12 @@
+{
+    "api_config": {
+        "charvet_api": {
+            "mongodb_link": "",
+            "mongodb_user": "",
+            "mongodb_password": "",
+            "api_key": "73T8BQ52mfU9G8qQ4qs92uUwm7FYNzrm",
+            "server_port": "8080",
+            "debug": false
+        }
+    }
+}
