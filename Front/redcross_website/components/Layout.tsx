@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import CenteredLayout from './CenteredLayout';
 import { withChildren, withClassName } from '../config/withs';
+import Image from 'next/image'
 
 export type LayoutType = 'centered'
 
@@ -22,11 +23,12 @@ export default function AppLayout({
       <Head>
         <title>RedCross</title>
         <meta name="description" content="To Do List application" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
       <main className="w-screen h-screen">
-        <div className="w-full h-20 flex justify-start border-b top-0 left-0 border-secondary/30 bg-black shadow-md p-4 absolute">
+        <div className="w-full h-20 flex justify-around items-center top-0 left-0 bg-black shadow-md  p-4 absolute">
             <Button className="text-white" onClick={() => router.push('/')}>Home</Button>
+            <Image src="/logo.svg" layout="fixed" width={70} height={70}/>
             <Button className="text-white" onClick={() => router.push('/products')}>Products</Button>
         </div>
         <Layout className={clsx(className, 'pt-20')}>

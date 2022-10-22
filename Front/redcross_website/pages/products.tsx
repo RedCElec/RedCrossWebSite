@@ -16,7 +16,7 @@ export default function ProductsPage() {
               <CardMedia component="img" height="140" image="../images.jpeg"/>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Lorem Ipsum
+                  The Uncolor
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Lorem Ipsum tah la carbonara et le cheddar dans la salle du temps
