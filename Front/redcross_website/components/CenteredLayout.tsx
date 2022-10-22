@@ -5,7 +5,7 @@ const CenteredLayout = ({
     title, icon = "/favicon.ico", children
 }: CenteredLayoutProps) => {
     return (
-        <div className='h-screen w-screen bg-light'>
+        <div className='h-screen w-screen bg-background'>
             <Head>
                 <title>{title}</title>
                 <meta name="description" content="To Do List application" />

@@ -11,6 +11,7 @@ module.exports = {
         "error": "#000000",
         "warning": "#000000",
         "success": "#000000",
+        "background": "#f1f2f3",
       }
     },
   },
