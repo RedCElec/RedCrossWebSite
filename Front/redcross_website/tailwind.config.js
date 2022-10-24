@@ -11,6 +11,9 @@ module.exports = {
         "error": "#000000",
         "warning": "#000000",
         "success": "#000000",
+      },
+      backgroundImage: {
+        'uncolor': "url('../public/uncolor.svg')",
       }
     },
   },
