@@ -17,9 +17,9 @@ const Home: NextPage = () => {
         <div className='text-center p-2 inline'>
           <p className='text-black font-mono'>Lorem ipsum dolor <br></br></p> 
         </div>
-        <div className='text-black max-w-screen-sm text-center' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sed ut aut impedit numquam, repellendus, ratione ipsa doloribus nulla corrupti quos assumenda? Iste porro veniam minima doloribus pariatur nihil nostrum!</div>
+        <div className='text-black max-w-sm text-center' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sed ut aut impedit numquam, repellendus, ratione ipsa doloribus nulla corrupti quos assumenda? Iste porro veniam minima doloribus pariatur nihil nostrum!</div>
       </div>
-      <Image src="/logo_noir.svg" layout="fixed" width={240} height={240} className="p-8"/>
+      <Image src="/logo_noir.svg" alt="This is a logo" layout="fixed" width={240} height={240} className="p-8"/>
       
     </AppLayout>
     <Footer></Footer>
