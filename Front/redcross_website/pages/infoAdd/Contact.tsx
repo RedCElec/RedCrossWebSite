@@ -11,7 +11,6 @@ export default function Contact() {
         <h1 className='text-2xl'>Contact</h1>
         <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque illo esse enim voluptates autem dolorem reiciendis iure optio, recusandae in molestiae pariatur fuga eius saepe, quam voluptatibus? Veniam, alias dicta.</div>
     </AppLayout>
-    <Footer></Footer>
     </div>
   )
 }

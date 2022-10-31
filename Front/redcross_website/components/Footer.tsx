@@ -7,8 +7,10 @@ const dateFromThisYear = new Date();
 export default function Footer() {
   return (
 
+ 
 
-<footer className="p-4 bg-black">
+<div className="w-full h-50 bg-black shadow-md p-4 ">
+
     <div className="sm:flex sm:items-center sm:justify-between pb-16 ">
         <a href="http://localhost:3000" className="grid grid-cols-1 flex place-items-center mb-4 sm:mb-0">
             <Image src="/logo.svg" layout="fixed" width={100} height={100} className='mr-3 h-8 row-start-1 row-end-2' alt="replacement"/>
@@ -24,7 +26,7 @@ export default function Footer() {
                 <a href="/infoAdd/PrivacyPolicy" className="mr-4 hover:text-red-600 md:mr-6">Privacy Policy</a>
             </li>
             <li>
-                <a href="/infoAdd/License" className="mr-4 hover:text-red-600 md:mr-6 ">License</a>
+                <a href="/infoAdd/Who" className="mr-4 hover:text-red-600 md:mr-6 ">Who are we ?</a>
             </li>
             <li>
                 <a href="/infoAdd/Contact" className="hover:text-red-600">Contact</a>
@@ -33,7 +35,7 @@ export default function Footer() {
     </div>
     <span className="block text-xs text-gray-500 sm:text-center dark:text-gray-400">© {dateFromThisYear.getFullYear()} <a href="https://flowbite.com/" className="hover:underline">RCelectronics</a>. All Rights Reserved.
     </span>
-</footer>
+</div>
 
   )
 }
