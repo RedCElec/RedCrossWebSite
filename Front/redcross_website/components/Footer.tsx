@@ -1,15 +1,34 @@
 import React from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
+import {useEffect, useState} from 'react';
 
 
 const dateFromThisYear = new Date();
 
 export default function Footer() {
-  return (
 
- 
+    
 
-<div className="w-full h-50 bg-black shadow-md p-4 ">
+    useEffect(()=> {
+        const element: any = document.getElementById('general');
+        
+        window.addEventListener('resize', ()=> {
+            console.log(window.innerHeight);
+            if(window.innerHeight == 0){
+                element.classList.add('bottom-0');
+
+                return function cleanup() {
+                    element.classList.remove('bottom-0');
+                }
+            }
+        });
+
+        
+    })
+
+    return (
+
+<div id='general' className="w-full h-50 bg-black shadow-md p-4">
 
     <div className="sm:flex sm:items-center sm:justify-between pb-16 ">
         <a href="http://localhost:3000" className="grid grid-cols-1 flex place-items-center mb-4 sm:mb-0">
@@ -38,6 +57,8 @@ export default function Footer() {
 </div>
 
   )
+
+  
 }
 
 export interface Footer {}

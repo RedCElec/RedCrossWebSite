@@ -6,11 +6,13 @@ import CarousselTry from '../components/Carousel/CarousselTry'
 
 
 const Home: NextPage = () => {
+
+
   return (
     <div>
       <AppLayout type="centered" className="flex flex-col">
         <CarousselTry></CarousselTry>
-        <div className="grid grid-cols-1 gap-2 justify-items-center ">
+        <div className="grid grid-cols-1 gap-2 justify-items-center pt-8 ">
                 <div className='text-5xl font-extrabold leading-none tracking-tight font-sans'>
               <span className="box-decoration-slice bg-gradient-to-r from-red-600 to-white-300 text-white px-2 ... ">
               About Us
@@ -33,6 +35,7 @@ const Home: NextPage = () => {
       </AppLayout>
     </div>
   )
+
 }
 
 export default Home

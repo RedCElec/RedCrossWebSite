@@ -5,8 +5,11 @@ import { useEffect, useState } from 'react';
 import { IconButton } from '@mui/material';
 import ArrowDropUpTwoToneIcon from '@mui/icons-material/ArrowDropUpTwoTone';
 import ArrowDropDownTwoToneIcon from '@mui/icons-material/ArrowDropDownTwoTone';
-import { pink } from '@mui/material/colors';
+import ArrowCircleDownTwoToneIcon from '@mui/icons-material/ArrowCircleDownTwoTone';
+import ArrowCircleUpTwoToneIcon from '@mui/icons-material/ArrowCircleUpTwoTone';
 import CenteredLayout from '../CenteredLayout';
+import { red } from '@mui/material/colors';
+
 
 export default function CarousselTry(){
 
@@ -25,25 +28,25 @@ export default function CarousselTry(){
     }
 
    useEffect(()=>{
-    const interval = setInterval(()=> setIndex(count=>loop(count+1)), 5000);
+    const interval = setInterval(()=> setIndex(count=>loop(count+1)), 7000);
     
     return()=> clearInterval(interval);
    });
-
-
     return(
-        <CenteredLayout className="flex flex-row">
+        <CenteredLayout className="flex flex-row relative">
             <div className='items-center w-full'>
-                <Image src={data[index].Image} width="300px" height="100px" layout="responsive"  objectFit="contain" alt="tusaoule"/>
+                <Image src={data[index].Image} width="500px" height="200px" layout="responsive"  objectFit="fill" alt="tusaoule" className='hover:translate-y-12'/>
             </div>
-            <div>
-                <IconButton  aria-label="add an alarm" onClick={()=>setIndex(count=>loop(count-1))}>
-                <ArrowDropUpTwoToneIcon/>
-                </IconButton>
-                <IconButton aria-label="add an alarm" onClick={()=>setIndex(count=>loop(count+1))}>
-                <ArrowDropDownTwoToneIcon/>
-                </IconButton>
-            </div>
+            
+                <div className='z-10 absolute bottom-0'>
+                    
+                        <IconButton aria-label="add an alarm" onClick={()=>setIndex(count=>loop(count-1))}>
+                        <ArrowCircleDownTwoToneIcon fontSize="large" sx={{ color: red[500] }}/>
+                        </IconButton>
+                        <IconButton aria-label="add an alarm" onClick={()=>setIndex(count=>loop(count+1))}>
+                        <ArrowCircleUpTwoToneIcon fontSize="large" sx={{ color: red[500] }}/>
+                        </IconButton>
+                </div>
         </CenteredLayout>
     ) 
-}
+};
