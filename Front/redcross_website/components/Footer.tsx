@@ -3,34 +3,17 @@ import Image from 'next/image';
 import {useEffect, useState} from 'react';
 
 
-const dateFromThisYear = new Date();
+
 
 export default function Footer() {
 
-    
-
-    useEffect(()=> {
-        const element: any = document.getElementById('general');
-        
-        window.addEventListener('resize', ()=> {
-            console.log(window.innerHeight);
-            if(window.innerHeight == 0){
-                element.classList.add('bottom-0');
-
-                return function cleanup() {
-                    element.classList.remove('bottom-0');
-                }
-            }
-        });
-
-        
-    })
+const dateFromThisYear = new Date();
 
     return (
 
-<div id='general' className="w-full h-50 bg-black shadow-md p-4">
+<div id='general' className="w-full h-50 bg-black shadow-md p-4 relative bottom-0">
 
-    <div className="sm:flex sm:items-center sm:justify-between pb-16 ">
+    <div className="sm:flex sm:items-center sm:justify-between pb-16  ">
         <a href="http://localhost:3000" className="grid grid-cols-1 flex place-items-center mb-4 sm:mb-0">
             <Image src="/logo.svg" layout="fixed" width={100} height={100} className='mr-3 h-8 row-start-1 row-end-2' alt="replacement"/>
             <div className="self-center text-3xl font-bold text-white "> RedCrossElectronics</div>

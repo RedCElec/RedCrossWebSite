@@ -20,7 +20,7 @@ export default function AppLayout({
   const router = useRouter();
 
   return (
-    <div className='space-y-6'>
+    <div>
       <Head>
         <title>RedCross</title>
         <meta name="description" content="To Do List application" />
@@ -33,7 +33,7 @@ export default function AppLayout({
             <Button className="text-white hover:text-red-600" onClick={() => router.push('/products')}>Products</Button>
         </div>
 
-        <main className="">
+        <main className="min-h-screen">
         <Layout className={clsx(className, 'pt-20')}>
           {children}
         </Layout>

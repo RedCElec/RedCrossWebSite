@@ -1,7 +1,7 @@
 
 
 
-export interface carousselType {
+export interface productType {
     id: Number,
     title: String,
     description: String,
@@ -10,19 +10,18 @@ export interface carousselType {
 }
 
 
+export interface productData extends productType { };
 
-export interface carousselData extends carousselType { };
-
-     const data= [
+     const dataArray= [
     {
-        id:2,
+        id:1,
         title: "tu connais",
         description: "qsdfg",
-        Image: "/AmpVox.webp",
+        Image: "/images.jpg",
     
     },
     {
-        id:3,
+        id:2,
         title: "tu connais",
         description: "qsdfg",
         Image: "/Test_1.jpg",
@@ -30,4 +29,4 @@ export interface carousselData extends carousselType { };
     },
 ]
 
-export default data;
+export default dataArray;
