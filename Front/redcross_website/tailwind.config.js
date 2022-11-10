@@ -1,4 +1,6 @@
+
 module.exports = {
+
   content: [
     "./pages/**/*.tsx",
     "./components/**/*.tsx"
@@ -17,4 +19,6 @@ module.exports = {
   },
   variants: {},
   plugins: [],
+
+  
 }

@@ -3,3 +3,30 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer components {
+    .slide.active {
+      @apply  opacity-100 transition duration-1000;
+    }
+    .slide {
+      @apply opacity-0 transition duration-1000 ease-in-out  ;
+    }
+  }
+
+  .swiper-button-prev.swiper-button-prev{
+    --swiper-theme-color: #ed1c2c;
+  }
+  .swiper-button-next.swiper-button-next{
+    --swiper-theme-color: #ed1c2c;
+  }
+/* target the active bullet */
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #ed1c2c;
+  opacity: 1;
+}
+
+/* target all bullets */
+.swiper-pagination-bullet.swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.7;
+}

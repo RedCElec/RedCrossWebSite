@@ -2,30 +2,28 @@
 
 
 export interface carousselType {
-    id: Number,
-    title: String,
-    description: String,
-    Image: String,
+    id: number,
+    title: string,
+    description: string,
+    image: string,
 
 }
-
 
 
 export interface carousselData extends carousselType { };
 
      const data= [
     {
-        id:2,
-        title: "tu connais",
-        description: "qsdfg",
-        Image: "/AmpVox.webp",
-    
+        id: 1,
+        image: "/AmpVox.webp",
+        title: "VoxAmplifier",
+        description: "tuConnais",
     },
     {
-        id:3,
-        title: "tu connais",
-        description: "qsdfg",
-        Image: "/Test_1.jpg",
+        id:2,
+        image: "/Test_1.jpg",
+        title: "MarshallAmplifier",
+        description: "tuConnais",
     
     },
 ]
