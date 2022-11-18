@@ -6,6 +6,8 @@ import CenteredLayout from './CenteredLayout';
 import { withChildren, withClassName } from '../config/withs';
 import Image from 'next/image';
 import Footer from './Footer';
+import Dropdown from './DropDown';
+
 
 export type LayoutType = 'centered'
 
@@ -27,10 +29,12 @@ export default function AppLayout({
         <link rel="icon" href="/logo_noir.ico" />
       </Head>
       
-        <div className="w-full h-20 flex justify-around items-center top-0 left-0 bg-black shadow-md  p-4 absolute">
-            <Button className="text-white hover:text-red-600" onClick={() => router.push('/')}>Home</Button>       {/*j'ai ajouté une anchor pour quand on click sur le logo c'a retourne à l'acceuil*/}
+        <div className="w-full h-20 flex justify-around items-center top-0 left-0 bg-black shadow-md p-4 absolute">
+            <Button className="text-white hover:text-red-600" onClick={() => router.push('/')}>Home</Button>      
+            <Button className="text-white hover:text-red-600">Info </Button>       
             <Image src="/logo.svg" layout="fixed" width={70} height={70} alt="bahAlors" onClick={() => router.push('/')}/> {/*Faudra mettre des alt correct mdrr*/}
             <Button className="text-white hover:text-red-600" onClick={() => router.push('/products')}>Products</Button>
+            <Dropdown></Dropdown>
         </div>
 
         <main className="min-h-screen">

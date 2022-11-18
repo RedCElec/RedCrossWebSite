@@ -35,7 +35,7 @@ const dateFromThisYear = new Date();
             </li>
         </ul>
     </div>
-    <span className="block text-xs text-gray-500 sm:text-center dark:text-gray-400">© {dateFromThisYear.getFullYear()} <a href="https://flowbite.com/" className="hover:underline">RCelectronics</a>. All Rights Reserved.
+    <span className="block text-xs text-gray-500 sm:text-center dark:text-gray-400">© {dateFromThisYear.getFullYear()} <a href="https://flowbite.com/" className="hover:underline">RXelectronics</a>. All Rights Reserved.
     </span>
 </div>
 
