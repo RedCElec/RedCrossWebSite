@@ -1,0 +1,31 @@
+
+
+
+export interface carousselType {
+    id: number,
+    title: string,
+    description: string,
+    image: string,
+
+}
+
+
+export interface carousselData extends carousselType { };
+
+     const data= [
+    {
+        id: 1,
+        image: "/AmpVox.webp",
+        title: "VoxAmplifier",
+        description: "tuConnais",
+    },
+    {
+        id:2,
+        image: "/Test_1.jpg",
+        title: "MarshallAmplifier",
+        description: "tuConnais",
+    
+    },
+]
+
+export default data;

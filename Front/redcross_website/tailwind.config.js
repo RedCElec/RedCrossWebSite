@@ -1,4 +1,6 @@
+
 module.exports = {
+
   content: [
     "./pages/**/*.tsx",
     "./components/**/*.tsx"
@@ -14,9 +16,12 @@ module.exports = {
       },
       backgroundImage: {
         'uncolor': "url('../public/uncolor.svg')",
+        "background": "#f1f2f3",
       }
     },
   },
   variants: {},
   plugins: [],
+
+  
 }
