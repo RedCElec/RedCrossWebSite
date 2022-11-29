@@ -1,8 +1,9 @@
 
 import {useRouter} from 'next/router'
-import AppLayout from '../components/Layout';
+import AppLayout from '../../components/Layout';
 import React, { useState } from 'react';
 import { FieldValue, useForm } from 'react-hook-form';
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 
 export default function LoginPage() {
@@ -31,7 +32,6 @@ export default function LoginPage() {
 
 
     }
-
     const router = useRouter();
 
     return (
@@ -61,6 +61,7 @@ export default function LoginPage() {
                                 <div className="pb-4 flex justify-between text-red-600">
                                     <button type="submit" className="bg-red-600 font-latoBold text-sm text-white p-3 mt-6 rounded-lg" > Submit </button>
                                     <button onClick={() => router.push('/RegistrationPage')}>no register yet ?</button>
+                                    <button onClick={() => signIn('google', {callbackUrl: 'http://localhost:3000'})}>Sign in with Google</button>
                                 </div>
                             </div>
                         </div>

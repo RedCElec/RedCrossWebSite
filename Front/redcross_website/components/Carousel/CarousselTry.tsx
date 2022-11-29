@@ -1,11 +1,7 @@
 
 import data from './dataCarousel';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import * as React from "react";
-//import { IconButton } from '@mui/material';
-//import ArrowCircleDownTwoToneIcon from '@mui/icons-material/ArrowCircleDownTwoTone';
-//import ArrowCircleUpTwoToneIcon from '@mui/icons-material/ArrowCircleUpTwoTone';
-//import { red } from '@mui/material/colors';
 import CenteredLayout from '../CenteredLayout';
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -34,7 +30,7 @@ export default function CarousselTry() {
                         // eslint-disable-next-line react/jsx-key
                         return (
                             <SwiperSlide key={slide.id}>
-                                <Image src={slide.image} width="500px" height="200px" layout="responsive" alt="error" />
+                                <Image src={slide.image} width={500} height={200} layout="responsive" alt="error" />
                             </SwiperSlide>
                         )
                     }

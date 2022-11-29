@@ -1,6 +1,6 @@
 
 import { useRouter } from 'next/router'
-import AppLayout from '../components/Layout';
+import AppLayout from '../../components/Layout';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
