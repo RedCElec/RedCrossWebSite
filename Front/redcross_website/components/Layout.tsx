@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button } from '@mui/material';
+import  Button  from '@mui/material/Button';
 import { NextRouter, useRouter } from 'next/router';
 import clsx from 'clsx';
 import CenteredLayout from './CenteredLayout';
@@ -8,7 +8,6 @@ import Image from 'next/image';
 import Footer from './Footer';
 
 import LoginPage from '../pages/authClient/loginPage';
-import { AnyTxtRecord } from 'dns';
 import { useSession, signIn, signOut } from 'next-auth/react'
 
 
@@ -17,8 +16,6 @@ export type LayoutType = 'centered'
 const LayoutMappings = {
   centered: CenteredLayout,
 };
-
-
 
 
 export default function AppLayout({
@@ -31,14 +28,14 @@ export default function AppLayout({
   const router = useRouter();
   const { data: session } = useSession()
 
-// variable declaration
+  // variable declaration
   let state: string = '';
   let pathway: string = '';
-  let userName: string ;
+  let userName: string;
 
   if (session) {
     state = 'Account';
-    pathway = '/authClient/accountParam';
+    pathway = '/authClient/Settings';
   }
   else {
     state = 'login';
@@ -55,17 +52,15 @@ export default function AppLayout({
       </Head>
 
       <div className="w-full h-20 flex justify-around items-center top-0 left-0 bg-black shadow-md p-4 absolute">
-        <Button className="text-white hover:text-red-600" onClick={() => router.push('/')}>Home</Button>
+        <Button variant="text" className="text-white hover:text-red-600" onClick={() => router.push('/')}>Home</Button>
         <Button className="text-white hover:text-red-600" onClick={() => router.push('/products')}>Products</Button>
         <Image src="/logo.svg" layout="fixed" width={70} height={70} alt="bahAlors" onClick={() => router.push('/')} /> {/*Faudra mettre des alt correct mdrr*/}
         <Button className="text-white hover:text-red-600">Info</Button>
 
-        <div className='text-white  flex-none text-center'>
-        <Button className="text-white hover:text-red-600 " onClick={() => router.push(pathway)}>{state}</Button>
-        <div className='text-sm text-gray-500'>{session?.user?.name}</div>
+        <div className='text-white flex-none text-center w-20'>
+          <Button className="text-white hover:text-red-600 " onClick={() => router.push(pathway)}>{state}</Button>
+          <div className='text-sm text-gray-500'>{session?.user?.email}</div>
         </div>
-
-
       </div>
 
       <main className="min-h-screen">
