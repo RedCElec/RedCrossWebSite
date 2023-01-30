@@ -1,2 +1,3 @@
 Front/redcross_website/.next
 Front/redcross_website/node_modules
+.env*.local
