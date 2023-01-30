@@ -18,7 +18,7 @@ export default NextAuth ({
       name: 'Credentials',
       async authorize(credentials, req){
         connectMongo().catch(error=> {error: 'cest pas bon'})
-        //console.log(credentials?.email)
+
         const result = await User.findOne({email: credentials?.email})
         if(!result){
           throw new Error("no user Found");

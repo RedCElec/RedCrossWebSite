@@ -8,8 +8,6 @@ import * as React from 'react';
 export default function ProductsPage() {
 
   const data: any = productData;
-  console.log(data.length);
-
 
 
     return (
