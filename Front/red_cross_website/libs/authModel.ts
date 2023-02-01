@@ -21,7 +21,7 @@ const IUserSchema: Schema = new Schema({
 }
 );
 
-mongoose.models = {};
+//mongoose.models = {};
 
 export default model("User", IUserSchema) ;
 

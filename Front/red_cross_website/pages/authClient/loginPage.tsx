@@ -9,8 +9,9 @@ import IconButton from '@mui/material/IconButton';
 
 
 type Values = {
-    password: string,
     email: string,
+    password: string,
+    
 }
 
 export default function LoginPage() {
@@ -31,7 +32,7 @@ export default function LoginPage() {
 
     const status = await signIn('credentials', {
         redirect: false,
-        email: values.email,
+        username: values.email,
         password: values.password,
         callbackUrl: "/"
        })

@@ -1,5 +1,5 @@
 import AppLayout from "../../components/Layout";
-import { Image } from 'mui-image'
+import  Image  from 'next/image'
 
 export default function Uncolor() {
     return (

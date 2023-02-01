@@ -36,9 +36,9 @@ export default function CarousselTry() {
                     }
                     )}
                 </Swiper>
-                <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center ">
+                <div className="absolute bottom-0 left-0 right-0 top-1/2 flex items-center justify-center ">
                     <div className="bg-red-600 opacity-50 hover:opacity-100 p-1 text-center z-10 text-3xl pb-2 font-mono">
-                        Unlock a new sound
+                        Discover new sound - get RCross Pedal
                         <div className="text-sm"> info There</div>
                     </div>
                     

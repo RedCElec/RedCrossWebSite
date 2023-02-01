@@ -5,22 +5,21 @@ import React, { useState } from 'react';
 
 
 type Values = {
-    password: string,
+    name: string,
     email: string,
-    address: string,
-    checkPassword: string,
+    password: string,
+    
 }
-
 
 export default function RegistrationPage() {
 
     const router = useRouter();
 
     const [values, setValues] = useState<Values>({
-        password: "",
+        name: "",
         email: "",
-        address: "",
-        checkPassword: "",
+        password: "",
+    
     });
 
 
@@ -30,8 +29,10 @@ export default function RegistrationPage() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         
         //event.preventDefault();
+        const body = { ...values };
+        //console.log(`POSTing ${JSON.stringify(body, null, 2)}`);
 
-        const res = await fetch('/api/auth/subscribe', {
+        const res = await fetch('/api/auth/createUser', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -62,24 +63,20 @@ export default function RegistrationPage() {
                             </p>
                         </div>
                         <div className="mt-6 grid grid-cols-2 justify-items-center text-center">
+                        <div className="pb-4">
+                                <p className="text-sm font-mono text-red-600">FullName</p>
+                                <input name='name' id='name' type='text' onChange={handleChange} className="border-2 border-gray-500 p-2 rounded-md focus:border-teal-500 focus:ring-teal-500 text-black" />
+                            </div>
                             <div className="pb-4">
                                 <p className="text-sm font-mono text-red-600">E-mail/Username</p>
                                 <input name='email' id='email' type='email' onChange={handleChange} className="border-2 border-gray-500 p-2 rounded-md focus:border-teal-500 focus:ring-teal-500 text-black" />
-                            </div>
-
-                            <div className="pb-4">
-                                <p className="text-sm font-mono text-red-600">Adress</p>
-                                <input name='address' id='address' type='address' onChange={handleChange} className="border-2 border-gray-500 p-2 rounded-md focus:border-teal-500 focus:ring-teal-500 text-black" />
                             </div>
 
                             <div className="pb-2">
                                 <p className="text-sm font-mono text-red-600">Password</p>
                                 <input name='password' id='password' type='password' onChange={handleChange} className="border-2 border-gray-500 p-2 rounded-md focus:border-teal-500 focus:ring-teal-500 text-black " />
                             </div>
-                            <div className="pb-2">
-                                <p className="text-sm font-mono text-red-600">Confirm Password</p>
-                                <input name='chechPassword' id='chechPassword' type='chechPassword' onChange={handleChange} className="border-2 border-gray-500 p-2 rounded-md focus:border-teal-500 focus:ring-teal-500 text-black " />
-                            </div>
+                                                        
                         </div>
                         <div className="grid place-items-center p-4">
                             <button type="submit" className="bg-red-600 font-latoBold text-sm text-white p-3 mt-6 rounded-lg px-4" >Submit </button>

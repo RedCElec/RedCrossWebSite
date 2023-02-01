@@ -9,9 +9,6 @@ import Footer from './Footer';
 
 import { useSession, signIn, signOut } from 'next-auth/react'
 
-//import { Button, ButtonGroup } from '@chakra-ui/react'
-//import LoginPage from '../pages/authClient/loginPage';
-
 
 export type LayoutType = 'centered'
 
@@ -62,7 +59,7 @@ export default function AppLayout({
 
         <div className='text-white flex-none text-center w-20'>
           <Button className="text-white hover:text-red-600 " onClick={() => router.push(pathway)}>{state}</Button>
-          <div className='text-sm text-gray-500'>{session?.user?.email}</div>
+          <div className='text-sm text-gray-500'>{session?.user?.name}</div>
         </div>
       </div>
 

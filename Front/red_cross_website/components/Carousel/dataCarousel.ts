@@ -33,13 +33,6 @@ export interface carousselData extends carousselType { };
         description: "tuConnais",
     
     },
-    {
-        id:4,
-        image: "/wp10891584.jpg",
-        title: "JHS",
-        description: "tuConnais",
-    
-    },
 ]
 
 export default data;
