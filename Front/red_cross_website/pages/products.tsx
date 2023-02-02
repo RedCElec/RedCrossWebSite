@@ -1,22 +1,25 @@
 
 import Grid from '@mui/material/Grid'
 import AppLayout from '../components/Layout'
-import ProductCard from '../components/ProductCard';
-import productData  from './ProductsObj/productData';
+import ProductCard from '../components/productCard';
+import productData from './ProductsObj/productData';
 import * as React from 'react';
 
 export default function ProductsPage() {
 
-  const data: any = productData;
+  const data = productData;
 
 
-    return (
-      <AppLayout type="centered">
-        
-        <Grid>
-          <ProductCard/>
-          <ProductCard/>
-        </Grid>
-      </AppLayout>
-    )
+  return (
+    <AppLayout type="centered">
+
+      <Grid>
+        {data.map((slide: any) => {
+          return (
+            <ProductCard key={slide.id} param={slide} />
+          )
+        })}
+      </Grid>
+    </AppLayout>
+  )
 }

@@ -6,12 +6,13 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import user from '../../libs/authModel'
 import GoogleIcon from '@mui/icons-material/Google';
 import IconButton from '@mui/material/IconButton';
+import KeyIcon from '@mui/icons-material/Key';
+
 
 
 type Values = {
     email: string,
     password: string,
-    
 }
 
 export default function LoginPage() {
@@ -30,13 +31,18 @@ export default function LoginPage() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-    const status = await signIn('credentials', {
-        redirect: false,
-        username: values.email,
-        password: values.password,
-        callbackUrl: "/"
-       })
+        const status = await signIn('credentials', {
+            redirect: false,
+            username: values.email,
+            password: values.password,
+            callbackUrl: "/"
+        })
     }
+
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+    };
 
 
     return (
@@ -54,21 +60,23 @@ export default function LoginPage() {
 
                             <div className="mt-6 ">
                                 <div className="pb-4">
-                                    <p className="text-sm font-mono text-red-600">E-mail/Username</p>
-                                    <input name='email' id='email' type='email' className="border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 text-black" onChange={handleChange} />
+                                    <input name='email' id='email' type='email' placeholder="E-mail/Username" className="outline-0 border-b-2 p-1 text-white bg-transparent w-1/2" onChange={handleChange} />
                                 </div>
 
                                 <div className="pb-4">
-                                    <p className="text-sm font-mono text-red-600">Password</p>
-                                    <input name='password' id='password' type='password' className="border-2 border-gray-500 p-2 rounded-md w-1/2 focus:border-teal-500 focus:ring-teal-500 text-black " onChange={handleChange} />
+
+                                    <input name='password' id='password' type={passwordShown ? "text" : "password"} placeholder="Password" className="outline-0 border-b-2 p-1 text-white bg-transparent w-1/2" onChange={handleChange} />
+                                    <IconButton onClick={togglePassword} color="primary" className='-translate-x-8 z-10'>
+                                        <KeyIcon />
+                                    </IconButton>
                                 </div>
 
-                                <div className="pb-4 flex justify-between text-red-600">
-                                    <button type="submit" className="bg-red-600 font-latoBold text-sm text-white p-3 rounded-lg" > Submit </button>
-                                    <button onClick={() => router.push('/authClient/RegistrationPage')}>no register yet ?</button>
+                                <div className="py-4 pt-8 flex justify-between text-red-600 font-mono">
+                                    <button type="submit" className="bg-red-600 text-white p-2 rounded-lg border-2 border-transparent hover:bg-transparent hover:border-white" > Submit </button>
+                                    <button className='bg-red-600 p-2 rounded-lg text-white border-2 border-transparent hover:bg-transparent hover:border-white' onClick={() => router.push('/authClient/RegistrationPage')}>Subscribe Now</button>
                                     <div className=''>
-                                        <IconButton className="text-sm" color="primary" onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000' })} >
-                                            <GoogleIcon/> 
+                                        <IconButton className="text-sm bg-red-600" color="primary" onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000' })}>
+                                            <GoogleIcon />
                                         </IconButton>
 
                                     </div>

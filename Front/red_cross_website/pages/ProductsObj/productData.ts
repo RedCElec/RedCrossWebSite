@@ -12,21 +12,23 @@ export interface productType {
 
 export interface productData extends productType { };
 
-     const dataArray= [
+     const data= [
     {
         id:1,
+        image: "/images.jpeg",
         title: "tu connais",
         description: "qsdfg",
-        Image: "/images.jpg",
+        
     
     },
     {
         id:2,
+        image: "/images.jpeg",
         title: "tu connais",
         description: "qsdfg",
-        Image: "/Test_1.jpg",
+        
     
     },
 ]
 
-export default dataArray;
+export default data;
