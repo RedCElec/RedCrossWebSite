@@ -4,7 +4,7 @@ import { NextRouter, useRouter } from 'next/router';
 import clsx from 'clsx';
 import CenteredLayout from './CenteredLayout';
 import { withChildren, withClassName } from '../config/withs';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Footer from './Footer';
 
 import { useSession, signIn, signOut } from 'next-auth/react'
@@ -34,7 +34,7 @@ export default function AppLayout({
 
   if (session) {
     state = 'Account';
-    pathway = '/authClient/Settings';
+    pathway = '/authClient/Account';
   }
   else {
     state = 'login';
@@ -50,16 +50,17 @@ export default function AppLayout({
         <link rel="icon" href="/logo_noir.ico" />
       </Head>
 
-      <div className="w-full h-20 flex justify-around items-center top-0 left-0 bg-black shadow-md p-4 absolute custom-header-button">
-        <Button variant="text" className="custom-header-button text-white hover:text-red-600" onClick={() => router.push('/')}>Home</Button>
-
-        <Button className="text-white hover:text-red-600 " onClick={() => router.push('/products')}>Products</Button>
-        <Image src="/logo.svg" layout="fixed" width={70} height={70} alt="bahAlors" onClick={() => router.push('/')} /> 
-        <Button className="text-white hover:text-red-600 ">Info</Button>
+      <div className="w-full h-20 flex justify-around items-center top-0 left-0 bg-black shadow-md absolute text-white md-p4">
+        <Button className=" hover:text-red-600 text-[9] md:text-sm" onClick={() => router.push('/')}>Home</Button>
+        <Button className="  hover:text-red-600 text-[9] md:text-sm" onClick={() => router.push('/products')}>Products</Button>
+        <div className='h-12 w-[70px] lg:h-[70px] lg:w-18 relative'>
+          <Image src="/logo.svg" fill alt="bahAlors" onClick={() => router.push('/')} />
+        </div>
+        <Button className="  hover:text-red-600 text-[9] md:text-sm">Info</Button>
 
         <div className='text-white flex-none text-center w-20'>
-          <Button className="text-white hover:text-red-600 " onClick={() => router.push(pathway)}>{state}</Button>
-          <div className='text-sm text-gray-500'>{session?.user?.name}</div>
+          <Button className=" hover:text-red-600 text-[9] md:text-sm" onClick={() => router.push(pathway)}>{state}</Button>
+          <div className='text-sm text-gray-500'>{session?.user?.email}</div>
         </div>
       </div>
 

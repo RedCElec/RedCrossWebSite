@@ -4,55 +4,53 @@ import Image from 'next/image'
 import Sidebar from '../components/Sidebar/Sidebar'
 import CarousselTry from '../components/Carousel/CarousselTry'
 import CarousselProduct from '../components/CarousselProduct/CarousselProduct'
+import TestCard from '../components/CarousselProduct/testCard';
+import Fade from '@/components/Fade'
+import { useState, useEffect } from 'react'
+import { Button } from '@mui/material';
 
 
 const Home: NextPage = () => {
 
+  const [visible, setVisible] = useState(false);
+
 
   return (
-    <div>
+    <>
+      <Fade/>
 
       <AppLayout type="centered" className="flex flex-col">
-        <CarousselTry></CarousselTry>
-        <div className="grid grid-cols-1 gap-2 justify-items-center pt-8 ">
-          <div className='text-5xl font-extrabold leading-none tracking-tight font-sans'>
-            <span className="box-decoration-slice bg-gradient-to-r from-red-600 to-white-300 text-white px-2 ... ">
-              About Us
-            </span>
+
+        <CarousselTry />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 md:p-8 gap-2 justify-items-center p-4 w-full bg-black">
+          <div className='w-32 h-32 lg:w-80 lg:h-80 relative'>
+            <Image src='/logo.svg' fill alt='ok'></Image>
           </div>
-          <div className='text-center p-2 inline'>
-            <p className='text-black font-mono'>Lorem ipsum dolor <br></br></p>
+          <div className='text-[10px] w-1/2 md:w-full lg:text-lg font-mono text-white text-center bg-red-600 mt-auto mb-auto'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi illo aut repudiandae illum nobis iste cupiditate. Delectus ullam architecto voluptatum natus. Eos amet sapiente, eum nisi dolore nam qui ab.</div>
+        </div>
+
+        <CarousselProduct />
+
+        <div className='pt-12 flex justify-between w-1/2'>
+          <div className=" border-t border-red-700 w-4/6 "></div>
+          <div className='h-10 w-10 lg:h-20 lg:w-20 -translate-y-2/4 px-10 lg:px-12'>
+            <Image src='/logo_noir.svg' alt="in btw logo" fill className="" />
           </div>
-        </div>
-        <div className='text-black max-w-xl text-center' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sed ut aut impedit numquam, repellendus, ratione ipsa doloribus nulla corrupti quos assumenda? Iste porro veniam minima doloribus pariatur nihil nostrum!</div>
-        <div className='text-black max-w-xl text-center' >Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sed ut aut impedit numquam, repellendus, ratione ipsa doloribus nulla corrupti quos assumenda? Iste porro veniam minima doloribus pariatur nihil nostrum!</div>
-
-        <div className='py-12 flex justify-between'>
-          <div className=" border-t border-red-700 w-60"></div>
-          <Image src='/logo_noir.svg' alt="in btw logo" width={100} height={100} className="-translate-y-2/4 px-4"/>
-          <div className=" border-t border-red-700 m-0 w-60"></div>
+          <div className=" border-t border-red-700 m-0 w-4/6 "></div>
         </div>
 
-        <CarousselProduct></CarousselProduct>
-
-
-        <div className='py-12 flex justify-between'>
-        <div className=" border-t border-red-700 w-60"></div>
-          <Image src='/logo_noir.svg' alt="in btw logo" width={100} height={100} className="-translate-y-2/4 px-4"/>
-          <div className=" border-t border-red-700 m-0 w-60"></div>
-        </div>
-
-
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 px-8 pb-8'>
-          <div className='flex'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 w-10/12 gap-6 lg:gap-0 lg:w-full pb-8'>
+          <div className='flex justify-center'>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/vXuCTILoYZY" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
-          <div className='flex'>
+          <div className='flex justify-center'>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/m3mdeveWEgw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
         </div>
+        
       </AppLayout>
-    </div>
+    </>
   )
 
 }

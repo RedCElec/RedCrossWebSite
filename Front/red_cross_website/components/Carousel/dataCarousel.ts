@@ -26,13 +26,6 @@ export interface carousselData extends carousselType { };
         description: "tuConnais",
     
     },
-    {
-        id:3,
-        image: "/Banner-Marshall-Studio.jpg",
-        title: "MarshallAmplifier",
-        description: "tuConnais",
-    
-    },
 ]
 
 export default data;

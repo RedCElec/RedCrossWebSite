@@ -5,7 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "../../../prisma/prisma";
 import bcrypt from "bcryptjs";
-import { PrismaClient } from "@prisma/client";
+
 
 
 export default NextAuth({
@@ -25,8 +25,7 @@ export default NextAuth({
       },
 
       authorize: async (credentials, req) => {
-        // Add logic here to look up the user from the credentials supplied
-        //const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
+        
         const dbUser = await prisma.user.findUnique({
           where: {
             email: credentials.username
@@ -54,7 +53,7 @@ export default NextAuth({
   session: { strategy: "jwt" },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      return true
+      return true;
     }
   },
 })

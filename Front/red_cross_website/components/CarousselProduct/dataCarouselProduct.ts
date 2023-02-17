@@ -21,7 +21,7 @@ export interface carousselData extends carousselType { };
     },
     {
         id:2,
-        image: "/Test_1.jpg",
+        image: "/TestCardSIze-100.jpg",
         title: "MarshallAmplifier",
         description: "tuConnais",
     
@@ -38,13 +38,6 @@ export interface carousselData extends carousselType { };
         image: "/Test_1.jpg",
         title: "Titre4",
         description: "tuConnais pas trop",
-    
-    },
-    {
-        id:5,
-        image: "/Banner-Marshall-Studio.jpg",
-        title: "C different",
-        description: "tuConnais super bien",
     
     },
     

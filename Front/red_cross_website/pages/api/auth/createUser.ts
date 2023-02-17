@@ -5,8 +5,6 @@ import bcrypt from 'bcryptjs'
 
 export default async function handle(req: NextApiRequest,res: NextApiResponse,) {
   
-
-
   if (req.method === "POST") {
     await handlePOST(res, req);
   } else {
@@ -16,7 +14,6 @@ export default async function handle(req: NextApiRequest,res: NextApiResponse,) 
   }
 }
 
-
 const hashPassword =  (password: string) => {
 
     const hashpass = bcrypt.hash(password, 12).then(result =>{
@@ -25,17 +22,29 @@ const hashPassword =  (password: string) => {
     })
     .catch(Error);
 
-    return hashpass
+    return hashpass;
     
 };
 
+const hashPhone = (phone: string) => {
+    const hashThing = bcrypt.hash(phone, 6)
+    .then(result =>{
+      return result;
+    })
+    .catch(Error);
+    return hashThing;
+}
+
 // POST /api/user
-//
 async function handlePOST(res, req) {
   
   const user = await prisma.user.create({
-    data: {name: req.body.name, email: req.body.email , password: await hashPassword(req.body.password) },
+    data: {email: req.body.email, 
+      password: await hashPassword(req.body.password),
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,   
+      phone: await hashPassword(req.body.phone)},
   });
-  //console.log(user)
+  
   res.json(user);
 }
