@@ -12,12 +12,12 @@ import { Button } from '@mui/material';
 
 const Home: NextPage = () => {
 
-  const [visible, setVisible] = useState(false);
-
+  const visible: boolean = true;
 
   return (
     <>
-      <Fade/>
+
+      {visible ? <Fade /> : <></>}
 
       <AppLayout type="centered" className="flex flex-col">
 
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
             <iframe width="560" height="315" src="https://www.youtube.com/embed/m3mdeveWEgw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
         </div>
-        
+
       </AppLayout>
     </>
   )

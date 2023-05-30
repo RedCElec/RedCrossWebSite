@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "libs/schema.prisma", "../../[...nextauth].tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "DATA/libs/schema.prisma", "../../[...nextauth].tsx"],
   "exclude": ["node_modules"]
 }

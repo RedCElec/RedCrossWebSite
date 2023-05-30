@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import AppLayout from '../../components/Layout';
 import React, { useEffect, useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react'
-import user from '../../libs/authModel'
+import user from '../../DATA/libs/authModel'
 import GoogleIcon from '@mui/icons-material/Google';
 import IconButton from '@mui/material/IconButton';
 import KeyIcon from '@mui/icons-material/Key';
@@ -71,22 +71,13 @@ export default function LoginPage() {
                                 Join our community of passion and music.
                                 You can access to all the new products in priority and learn more about the brand.
                             </p>
-                             {/*<div className="pb-4">
-                                <FormInput
-                                    name="email"
-                                    placeholder="Email/Username"
-                                    label="username"
-                                    type="email"
-                                    value={values.email}
-                                    onChange={onChange}
-                                /> */}
                             <div className="pb-4">
                                <input name='email' id='email' type='email' placeholder="E-mail/Username" className="outline-0 border-b-2 p-1 text-white bg-transparent w-1/2 invalid:border-red-600 invalid:text-red-600" onChange={onChange} />
                             </div>
 
                             <div className="pb-4">
                                 <input name='password' id='password' type={passwordShown ? "text" : "password"} pattern= "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,15}$" placeholder="Password" className="outline-0 border-b-2 p-1 text-white bg-transparent w-1/2 invalid:border-red-600 invalid:text-red-600" onChange={onChange} />
-                                <IconButton onClick={togglePassword} color="primary" className='-translate-x-8 z-10'>
+                                <IconButton onClick={togglePassword} color="primary" className='-translate-x-8 z-10 '>
                                     <KeyIcon />
                                 </IconButton>
                             </div>

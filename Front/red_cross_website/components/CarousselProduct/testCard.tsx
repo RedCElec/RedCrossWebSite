@@ -1,16 +1,14 @@
 
-import Card from '@mui/material/Card'
-import CardActionArea from '@mui/material/CardActionArea'
-import CardMedia from '@mui/material/CardMedia'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 
 
 export default function TestCard ({param}) {
+    
+    const router = useRouter();
 
     return(
-        <button className='p-6 relative h-80 w-80 '>
+        <button className='p-6 relative h-80 w-80 ' onClick={() => router.push(`/products/${param.id}`)}>
             <Image src={param.image} 
             fill
             priority

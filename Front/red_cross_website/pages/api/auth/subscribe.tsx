@@ -1,5 +1,5 @@
-import User from '../../../libs/authModel'
-import connectDB from '../../../libs/mongooseConnect'
+import User from '../../../DATA/libs/authModel'
+import connectDB from '../../../DATA/libs/mongooseConnect'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from "bcryptjs";
 

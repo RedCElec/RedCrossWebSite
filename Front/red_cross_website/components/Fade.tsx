@@ -9,7 +9,7 @@ export default function Fade() {
         setTimeout(() => {
             setClosing(true)
 
-        }, 3000);
+        }, 4000);
     }
     const changeState = () => {
         setState2(true);
