@@ -5,6 +5,7 @@ export interface productType {
     title: string,
     description: string,
     image: string,
+    star: number
 
 }
 
@@ -16,6 +17,7 @@ const data = [
         image: "/images.jpeg",
         title: "tu connais",
         description: "qsdfg",
+        star: 4,
 
     },
     {
@@ -23,6 +25,7 @@ const data = [
         image: "/ampVox.webp",
         title: "tu connais",
         description: "qsdfg",
+        star: 5,
 
     },
     {
@@ -30,6 +33,7 @@ const data = [
         image: "/images.jpeg",
         title: "tu connais",
         description: "qsdfg",
+        star: 3,
 
     },
     {
@@ -37,12 +41,14 @@ const data = [
         image: "/images.jpeg",
         title: "tu connais",
         description: "qsdfg",
+        star: 4,
     },
     {
         id: 5,
-        image: "/images.jpeg",
+        image: "/testPedal.jpg",
         title: "tu connais",
         description: "qsdfg",
+        star: 1,
 
     },
     {
@@ -50,21 +56,10 @@ const data = [
         image: "/images.jpeg",
         title: "tu connais",
         description: "qsdfg",
+        star: 5,
 
     },
-    {
-        id: 7,
-        image: "/images.jpeg",
-        title: "tu connais",
-        description: "qsdfg",
 
-    },
-    {
-        id: 8,
-        image: "/images.jpeg",
-        title: "tu connais",
-        description: "qsdfg",
-    },
 ]
 
 export default data;

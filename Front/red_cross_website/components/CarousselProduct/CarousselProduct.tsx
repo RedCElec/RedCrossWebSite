@@ -1,9 +1,8 @@
 
-import data from '../CarousselProduct/dataCarouselProduct';
+import data from '../../DATA/productData';
 import * as React from "react";
 import { Swiper, SwiperSlide} from "swiper/react"
 import { Navigation, Pagination, FreeMode, Autoplay } from "swiper";
-import ProductCard from '../ProductCard';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

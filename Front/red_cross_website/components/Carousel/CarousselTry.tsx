@@ -1,5 +1,5 @@
 
-import data, { carousselType } from './dataCarousel';
+import data, { carousselType } from '../../DATA/dataCarousel';
 import Image from 'next/image';
 import * as React from "react";
 import CenteredLayout from '../CenteredLayout';
@@ -30,7 +30,7 @@ export default function CarousselTry() {
                     {data.map((slide: carousselType) => {
                         
                         return (
-                            <SwiperSlide key={slide.id.toString()}>
+                            <SwiperSlide key={slide.id}>
                                 <div key={slide.id} className='relative w-full lg:h-[85vh] md:h-[400px] h-[40vh]'>
                                 <Image src={slide.image} fill priority alt="error" />
                                 </div>
