@@ -5,7 +5,8 @@ export interface productType {
     title: string,
     description: string,
     image: string,
-    star: number
+    star: number,
+    price: number
 
 }
 
@@ -14,10 +15,11 @@ export interface productData extends productType { };
 const data = [
     {
         id: 1,
-        image: "/images.jpeg",
+        image: "/mxrtry.jpg",
         title: "tu connais",
         description: "qsdfg",
-        star: 4,
+        star: 1,
+        price: 200,
 
     },
     {
@@ -26,6 +28,7 @@ const data = [
         title: "tu connais",
         description: "qsdfg",
         star: 5,
+        price: 200,
 
     },
     {
@@ -34,6 +37,7 @@ const data = [
         title: "tu connais",
         description: "qsdfg",
         star: 3,
+        price: 180,
 
     },
     {
@@ -42,6 +46,7 @@ const data = [
         title: "tu connais",
         description: "qsdfg",
         star: 4,
+        price: 200,
     },
     {
         id: 5,
@@ -49,6 +54,7 @@ const data = [
         title: "tu connais",
         description: "qsdfg",
         star: 1,
+        price: 200,
 
     },
     {
@@ -57,6 +63,7 @@ const data = [
         title: "tu connais",
         description: "qsdfg",
         star: 5,
+        price: 200,
 
     },
 

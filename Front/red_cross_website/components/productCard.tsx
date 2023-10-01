@@ -15,7 +15,7 @@ export default function ProductCard({ param }) {
   return (
     <div>
       <div
-        className="relative h-[30vw] w-2/2< p-4 rounded-xl bg-gray text-center hover:drop-shadow-md hover:bg-white ease-in-out duration-300 font-mono cursor-pointer"
+        className="relative h-[30vw] p-4 rounded-xl bg-white text-center hover:drop-shadow-md hover:bg-white ease-in-out duration-300 font-mono cursor-pointer"
         onClick={() => router.push(`/products/${param.id}`)}
       >
         <h1 className="p-2 text-lg font-lg ">{param.name}</h1>
@@ -24,9 +24,9 @@ export default function ProductCard({ param }) {
         </div>
         <div className="p-2">
           <h1>{param.description}</h1>
-          <div className="grid  grid-cols-2 justify-center">
+          <div className="grid grid-cols-2 justify-center items-center">
             <p>200€</p>
-            <div className="flex ">
+            <div className="flex justify-center">
               {array.map((index) => (
                 <Image
                   src="star.svg"

@@ -1,13 +1,10 @@
 import type { NextPage } from 'next'
 import AppLayout from '../components/Layout'
 import Image from 'next/image'
-import Sidebar from '../components/Sidebar/Sidebar'
 import CarousselTry from '../components/Carousel/CarousselTry'
 import CarousselProduct from '../components/CarousselProduct/CarousselProduct'
-import TestCard from '../components/CarousselProduct/testCard';
 import Fade from '@/components/Fade'
-import { useState, useEffect } from 'react'
-import { Button } from '@mui/material';
+
 
 
 const Home: NextPage = () => {

@@ -55,7 +55,7 @@ export default function CarousselTry() {
                     return (
                         <>
                             <SwiperSlide key={slide.id}>
-                                <TestCard param={slide} />
+                                <TestCard param={slide} key={slide.id} />
                             </SwiperSlide>
                         </>
 
