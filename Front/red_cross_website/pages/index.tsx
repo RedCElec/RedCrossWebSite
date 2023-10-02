@@ -3,7 +3,7 @@ import AppLayout from '../components/Layout'
 import Image from 'next/image'
 import CarousselTry from '../components/Carousel/CarousselTry'
 import CarousselProduct from '../components/CarousselProduct/CarousselProduct'
-import Fade from '@/components/Fade'
+import Fade from '@/components/Animation/Fade'
 
 
 

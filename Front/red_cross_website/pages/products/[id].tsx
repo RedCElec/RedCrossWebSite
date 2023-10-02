@@ -2,13 +2,12 @@ import Image from "next/image";
 import AppLayout from "../../components/Layout";
 import productData, { productType } from "../../DATA/productData";
 import { useRef, useEffect } from "react";
-import * as React from "react"
+import * as React from "react";
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Button } from "@mui/material";
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import { red } from '@mui/material/colors';
-
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import { red } from "@mui/material/colors";
 
 interface ProductsIDProps {
   data: productType[];
@@ -16,11 +15,12 @@ interface ProductsIDProps {
 
 const useScroll = () => {
   const elRef = useRef(null);
-  const executeScroll: any = () => elRef.current.scrollIntoView({ behavior: "smooth"});
+  
+  const executeScroll: any = () =>
+    elRef.current.scrollIntoView({ behavior: "smooth" });
 
   return [executeScroll, elRef];
 };
-
 
 const ProductsID: NextPage<ProductsIDProps> = ({ data }) => {
   const router = useRouter();
@@ -28,9 +28,7 @@ const ProductsID: NextPage<ProductsIDProps> = ({ data }) => {
 
   const item = data.find((item: productType) => item.id === Number(id));
 
-  
-  const [executeScroll, elRef] = useScroll()
-    useEffect(executeScroll, [executeScroll]) 
+  const [executeScroll, elRef] = useScroll();
 
   if (!item) {
     return <div>Item not found!</div>;
@@ -69,25 +67,40 @@ const ProductsID: NextPage<ProductsIDProps> = ({ data }) => {
             </Button>
             <Button className="text-black"> Coup de Coeur</Button>
           </div>
-          
         </div>
-        
       </div>
 
-      <ArrowCircleDownIcon sx={{ color: red[700] }}  fontSize="large" className="animate-bounce justify-self-center cursor-pointer hover:animate-none" onClick={executeScroll}/>
+      <ArrowCircleDownIcon
+        sx={{ color: red[700] }}
+        fontSize="large"
+        className="animate-bounce justify-self-center cursor-pointer hover:animate-none"
+        onClick={executeScroll}
+      />
       <h3 className="justify-self-center text-red-600">more infos...</h3>
 
       <div ref={elRef} className="h-[25vh] w-full bg-red-600 my-4 items-center">
         <h1 className="text-3xl text-white text-center">Join Us</h1>
-        <p className="text-sm text-white text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi accusamus labore velit culpa dolore neque id, reprehenderit, dolor nemo dolorum magni dicta officia suscipit fugit? Modi qui ipsa accusamus ratione.</p>
+        <p className="text-sm text-white text-center">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
+          accusamus labore velit culpa dolore neque id, reprehenderit, dolor
+          nemo dolorum magni dicta officia suscipit fugit? Modi qui ipsa
+          accusamus ratione.
+        </p>
       </div>
       <div className="flex flex-col w-[80vw] h-full gap-y-2 p-8">
         <h1 className="text-5xl font-bold justify-start">Media</h1>
-        <p>fghjklmqsdlfgjhhjqklsdfgjhgfsgdhfjgkhlgfdksjhgfsdghjhklgkfjhgfqsdgfhgjkhl</p>
-        <iframe width="800" height="400" src="https://www.youtube.com/embed/m3mdeveWEgw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <p>
+          fghjklmqsdlfgjhhjqklsdfgjhgfsgdhfjgkhlgfdksjhgfsdghjhklgkfjhgfqsdgfhgjkhl
+        </p>
+        <iframe
+          width="800"
+          height="400"
+          src="https://www.youtube.com/embed/m3mdeveWEgw"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </div>
-
-      {/*<div className="absolute -bottom-52 -left-20 rounded-full h-[500px] w-[500px] bg-gradient-to-r from-black to-red-600 z-0 "></div>*/}
     </AppLayout>
   );
 };

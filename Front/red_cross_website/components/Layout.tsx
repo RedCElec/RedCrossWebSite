@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import clsx from 'clsx';
 import CenteredLayout from './CenteredLayout';
-import StandartLayout from './StandartLayout';
+
 import { withChildren, withClassName } from '../config/withs';
 import Footer from './Footer';
 import  Header from './Header'
@@ -14,7 +14,6 @@ export type LayoutType = 'centered'
 
 const LayoutMappings = {
   centered: CenteredLayout,
-  standard: StandartLayout,
 };
 
 
