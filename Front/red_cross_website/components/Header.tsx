@@ -18,11 +18,16 @@ export default function Header(session_exp){
       userName = "";
     }
 
+    const nbProduct: number = 5;
+
     return(
         
         <div className=" w-full h-20 flex justify-around items-center top-0 left-0 bg-black shadow-md absolute text-white font-bold md-p4">
         <Button className="hover:text-red-600 text-[9] md:text-sm font-mono" onClick={() => router.push('/')}>Home</Button>
-        <Button className="  hover:text-red-600 text-[9] md:text-sm font-mono" onClick={() => router.push('/products')}>Products</Button>
+        <div className="flex items-center justify-center">
+          <Button className="hover:text-red-600 text-[9] md:text-sm font-mono" onClick={() => router.push('/products')}>Products</Button>
+          <div className="font-mono font-bold rounded-full bg-white text-black w-6 h-6 text-center">{nbProduct}</div>
+        </div>
         <div className='h-12 w-[70px] lg:h-[70px] lg:w-18 relative'>
           <Image src="/logo.svg" fill alt="bahAlors" onClick={() => router.push('/')} />
         </div>

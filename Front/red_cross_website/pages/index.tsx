@@ -4,8 +4,7 @@ import Image from 'next/image'
 import CarousselTry from '../components/Carousel/CarousselTry'
 import CarousselProduct from '../components/CarousselProduct/CarousselProduct'
 import Fade from '@/components/Animation/Fade'
-
-
+import data from '../DATA/productData'
 
 const Home: NextPage = () => {
 
@@ -27,7 +26,10 @@ const Home: NextPage = () => {
           <div className='text-[10px] w-1/2 md:w-full lg:text-lg font-mono text-white text-center bg-red-600 mt-auto mb-auto'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi illo aut repudiandae illum nobis iste cupiditate. Delectus ullam architecto voluptatum natus. Eos amet sapiente, eum nisi dolore nam qui ab.</div>
         </div>
 
-        <CarousselProduct />
+        <div className='w-full pb-10 bg-black'>
+          <h1 className='font-mono text-2xl text-white text-center p-8'> NEWS</h1>
+          <CarousselProduct numberOfCard={null} dataArray={data} />
+        </div>
 
         <div className='pt-12 flex justify-between w-1/2'>
           <div className=" border-t border-red-700 w-4/6 "></div>

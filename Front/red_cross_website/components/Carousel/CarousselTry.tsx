@@ -31,8 +31,8 @@ export default function CarousselTry() {
                         
                         return (
                             <SwiperSlide key={slide.id}>
-                                <div key={slide.id} className='relative w-full lg:h-[85vh] md:h-[400px] h-[40vh]'>
-                                <Image src={slide.image} fill priority alt="error" />
+                                <div className='relative w-full lg:h-[85vh] md:h-[400px] h-[40vh]'>
+                                    <Image src={slide.image} fill priority alt="error" key={slide.id}/>
                                 </div>
                             </SwiperSlide>
                         )

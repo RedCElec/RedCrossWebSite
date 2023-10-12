@@ -1,72 +1,129 @@
-
-
 export interface productType {
-    id: number,
-    title: string,
-    description: string,
-    image: string,
-    star: number,
-    price: number
 
+  
+    id: number;
+    imageData:{
+        image: string;
+        height: number;
+        width: number;
+    }
+    infoData:{
+        title: string;
+        description: string;
+        categorie: string;
+        star: number;
+        price: number;
+    }
 }
 
-export interface productData extends productType { };
+export interface productData extends productType {}
 
 const data = [
-    {
-        id: 1,
-        image: "/mxrtry.jpg",
-        title: "tu connais",
-        description: "qsdfg",
-        star: 1,
-        price: 200,
-
+  {
+    id: 0,
+    imageData: {
+      image: "/mxrtry.jpg",
+      height: 300,
+      width: 600,
     },
-    {
-        id: 2,
-        image: "/ampVox.webp",
-        title: "tu connais",
-        description: "qsdfg",
-        star: 5,
-        price: 200,
-
+    infoData: {
+      title: "MXR DynaComp Yellow edition",
+      description: "Un comp MXR pas trop mauvais",
+      star: 3,
+      price: 200,
+      categorie: "compressor"
     },
-    {
-        id: 3,
-        image: "/images.jpeg",
-        title: "tu connais",
-        description: "qsdfg",
-        star: 3,
-        price: 180,
-
+  },
+  {
+    id: 1,
+    imageData: {
+      image: "/mxrtry.jpg",
+      height: 300,
+      width: 600,
     },
-    {
-        id: 4,
-        image: "/images.jpeg",
-        title: "tu connais",
-        description: "qsdfg",
-        star: 4,
-        price: 200,
+    infoData: {
+      title: "MXR DynaComp Yellow edition",
+      description: "Un comp MXR pas trop mauvais",
+      star: 3,
+      price: 200,
+      categorie: "compressor"
     },
-    {
-        id: 5,
-        image: "/testPedal.jpg",
-        title: "tu connais",
-        description: "qsdfg",
-        star: 1,
-        price: 200,
-
+  },
+  {
+    id: 2,
+    imageData: {
+      image: "/testPedal.jpg",
+      height: 300,
+      width: 600,
     },
-    {
-        id: 6,
-        image: "/images.jpeg",
-        title: "tu connais",
-        description: "qsdfg",
-        star: 5,
-        price: 200,
-
+    infoData: {
+      title: "OverDrive type Vemuram",
+      description: "On ne peut pas se tromper avec une Vemuram",
+      star: 4,
+      price: 400,
+      categorie: "Drive"
     },
-
-]
+  },
+  {
+    id: 3,
+    imageData: {
+      image: "/ampVox.webp",
+      height: 300,
+      width: 600,
+    },
+    infoData: {
+      title: "Ampli VOX AC30",
+      description: "Un ampli British sacrément cool",
+      star: 5,
+      price: 3000,
+      categorie: "ampli"
+    },
+  },
+  {
+  id: 4,
+    imageData: {
+    image: "/mxrtry.jpg",
+      height: 300,
+      width: 600,
+    },
+    infoData: {
+      title: "MXR DynaComp Yellow edition",
+      description: "Un comp MXR pas trop mauvais",
+      star: 3,
+      price: 200,
+      categorie: "compressor"
+    },
+  },
+  {
+    id: 5,
+    imageData: {
+      image: "/testPedal.jpg",
+      height: 300,
+      width: 600,
+    },
+    infoData: {
+      title: "OverDrive type Vemuram",
+      description: "On ne peut pas se tromper avec une Vemuram",
+      star: 4,
+      price: 400,
+      categorie: "Drive"
+    },
+  },
+  {
+    id: 7,
+    imageData: {
+      image: "/ampVox.webp",
+      height: 300,
+      width: 600,
+    },
+    infoData: {
+      title: "Ampli VOX AC30",
+      description: "Un ampli British sacrément cool",
+      star: 5,
+      price: 3000,
+      categorie: "ampli"
+    },
+  },
+];
 
 export default data;

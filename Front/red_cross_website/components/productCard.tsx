@@ -27,7 +27,7 @@ export default function ProductCard({ param, setLoading }:Props) {
   };
 
   
-  const number: number = param.star;
+  const number: number = param.infoData.star;
   let array = [];
   let index: number = 0;
 
@@ -40,18 +40,18 @@ export default function ProductCard({ param, setLoading }:Props) {
     <div>
           
       <div
-        className="relative h-[30vw] p-4 bg-white text-center border-2 border-white hover:m-4 hover:bg-white ease-in-out duration-300 font-mono cursor-pointer 
+        className="flex flex-col items-center h-[50vh] sm:h-[60vw] md:h-[40vw] xl:h-[30vw] w-5/6 p-4 bg-white text-center hover:m-4 hover:bg-white ease-in-out duration-300 font-mono cursor-pointer 
         hover:shadow-[5px_5px_rgba(220,38,38,_0.4),_10px_10px_rgba(220,38,38,_0.3),_15px_15px_rgba(220,38,38,_0.2),_20px_20px_rgba(220,38,38,_0.1),_25px_25px_rgba(220,38,38,_0.05)]"
         onClick={() => getDomainInfo(param.id)}
       >
-        <div className="relative w-full h-3/4 bg-black">
-          <Image src={param.image} fill alt="placeholder" />
+        <div className="relative w-[90%] sm:w-1/2 md:w-5/6 h-3/4 bg-black">
+          <Image src={param.imageData.image} fill alt="placeholder" />
         </div>
         <div className="p-2">
-          <h1 className="p-2 text-lg text-3xl font-bold ">{param.title}</h1>
-          <h1>{param.description}</h1>
+          <h1 className="p-2 text-lg text-3xl font-bold ">{param.infoData.title}</h1>
+          <h1>{param.infoData.description}</h1>
           <div className="grid grid-cols-2 justify-center items-center">
-            <p className="font-bold">200€</p>
+            <p className="font-bold">{param.infoData.price} $</p>
             <div className="flex justify-center">
               {array.map((index) => (
                 <StarIcon key={index}/>
