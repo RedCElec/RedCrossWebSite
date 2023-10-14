@@ -36,14 +36,33 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
 }
 
 /* target all bullets */
-.swiper-pagination-bullet.swiper-pagination-bullet {
-  background-color: white;
-  opacity: 0.7;
+
+p.swiper-pagination-bullet {
+  width: 2px;
+  height: 60px;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0.6;
+
+
 }
 
+p.swiper-pagination-bullet-active {
+  
+  background: rgb(220 38 38);
+  opacity: 90%;
+  transition-property: all;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 150ms;
+
+}
 
 /*C'est une bétise woulaaaaaaaaaaaaaa !!!!!!!!!!! 
-<--------------------------GROSSE COONERIE J4AI MIS TOUT LE CSS DANS LE GLOBAL (C'est mal de copy/paste) ------------->*/
+<--------------------------GROSSE COONERIE J4AI MIS TOUT LE CSS DANS LE GLOBAL ------------->*/
 
 .dropdown-menu {
     background: red;

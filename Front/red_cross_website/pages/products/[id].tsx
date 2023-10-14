@@ -8,8 +8,19 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Button } from "@mui/material";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/FavoriteIcon";
+
 import CarousselProduct from "@/components/CarousselProduct/CarousselProduct";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import c from 'clsx'
+import { Mousewheel, Pagination } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
+// import required modules
+
 
 
 interface ProductsIDProps {
@@ -36,6 +47,12 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
   const passingData: productType[] = productData;
   const [executeScroll, elRef] = useScroll();
 
+  const pagination = {
+    clickable: true,
+    renderBullet: () => {
+      return '<p class="flex flex-cols bg-grey-600 gap-2 ' + c("swiper-pagination-bullet", "swiper-pagination-bullet-active") + '"> </p>';
+    },
+  };
 
 
   if (!item) {
@@ -44,21 +61,40 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
 
   return (
     <AppLayout type="centered" className="flex flex-col font-mono">
-      <div className="grid grid-cols-2 w-[80vw] h-full p-8 justify-end z-10">
-        <div className="w-full ">
-          <Image
-            src={item.imageData.image}
-            alt="Picture of the author"
-            width={500}
-            height={500}
-          />
-        </div>
-        <div className="">
+      <div className="grid grid-cols-2 w-[80vw] h-[78vh] pt-12 justify-end z-10">
+
+        <Swiper
+          modules={[Mousewheel, Pagination]}
+          slidesPerView={1}
+          direction={"vertical"}
+          spaceBetween={30}
+          mousewheel={true}
+          pagination={pagination}
+          className="scroll-pt-[20px] w-4/6 h-5/6 flex flex-cols">
+
+          {passingData.slice(0, 3).map((slide: any) => {
+            return (
+
+              <SwiperSlide key={slide.id} className="text-center flex justify-center items-center">
+                <Image
+                  src={slide.imageData.image}
+                  key={slide.id}
+                  alt="Picture of the author"
+                  width={500}
+                  height={500}
+                />
+              </SwiperSlide>
+            )
+          }
+          )}
+        </Swiper>
+
+        <div>
           <h1 className="text-5xl font-bold">{item.infoData.title} </h1>
           <h2 className="text-3xl font-semi">Précision de catégorie</h2>
           <div>Nombre d étoile</div>
 
-          <div className="">
+          <div>
             <div className="my-10">
               Description Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Cupiditate placeat excepturi aspernatur dolor, hic iste
@@ -81,13 +117,14 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
       <ArrowCircleDownIcon
         sx={{ color: red[700] }}
         fontSize="large"
-        className="animate-bounce justify-self-center cursor-pointer hover:animate-none"
+        className="animate-bounce justify-self-center cursor-pointer hover:animate-none p-0"
         onClick={executeScroll}
       />
+      <p className="justify-self-center text-red-600 pb-8">more infos...</p>
+      
 
-      <h3 className="justify-self-center text-red-600">more infos...</h3>
 
-      <div ref={elRef} className="h-[25vh] w-full bg-red-600 my-4 items-center">
+      <div ref={elRef} className="h-[25vh] w-full bg-red-600 items-center">
         <h1 className="text-3xl text-white text-center">Join Us</h1>
         <p className="text-sm text-white text-center">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
@@ -99,19 +136,17 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
 
 
       <div className='w-5/6'>
-        <h1 className="text-3xl font-bold justify-center p-2">Produit Similaire</h1>
-        <CarousselProduct numberOfCard={3} dataArray={passingData}/>
+        <h1 className="text-5xl font-bold justify-start p-8">Produit Similaire</h1>
+        <CarousselProduct numberOfCard={3} dataArray={passingData} />
       </div>
 
-      <div className='pt-12 flex justify-center w-1/2'>
+      <div className='py-12 flex justify-center w-1/2'>
         <div className=" border-t border-red-700 m-0 w-4/6 "></div>
       </div>
 
       <div className="flex flex-col w-[80vw] h-full gap-y-2 p-8">
         <h1 className="text-5xl font-bold justify-start">Media</h1>
-        <p>
-          fghjklmqsdlfgjhhjqklsdfgjhgfsgdhfjgkhlgfdksjhgfsdghjhklgkfjhgfqsdgfhgjkhl
-        </p>
+        <p> fghjklmqsdlfgjhhjqklsdfgjhgfsgdhfjgkhlgfdksjhgfsdghjhklgkfjhgfqsdgfhgjkhl </p>
         <iframe
           width="800"
           height="400"
