@@ -7,7 +7,8 @@ import Image from "next/image";
 import { useState, useEffect,SetStateAction } from "react";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import SideBar from "@/components/SideBar";
+import SideBar from "@/components/SideBarLeft";
+import SideBarTop from "@/components/SideBarTop";
 
 
 
@@ -24,7 +25,7 @@ export default function ProductsPage() {
   const [dataArray, setDataArray] = useState(productData.slice(0, nbOfCard));
 
   
-  const pageNumber = (dir: boolean, pageMax) => {
+  const pageNumber = (dir: boolean, pageMax: number) => {
 
     if (dir === true && pageNav <= pageMax) {
       setPageNav(pageNav + 1);
@@ -36,16 +37,10 @@ export default function ProductsPage() {
 
   useEffect(() => {
 
-    console.log(pageNav, 'ok')
-    setDataArray(productData.slice(nbOfCard * (pageNav - 1), nbOfCard * (pageNav)))
+   setDataArray(productData.slice(nbOfCard * (pageNav - 1), nbOfCard * (pageNav)))
 
   }, [pageNav])
 
-  
-
-  const toggleState = () => {
-    setState(!state);
-  };
 
   return (
     
@@ -62,7 +57,8 @@ export default function ProductsPage() {
       
         */}
 
-        <SideBar></SideBar>
+        {/*<SideBar></SideBar>*/}
+        <SideBarTop></SideBarTop>
 
         <div className="w-[78vw] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 py-8 grow gap-4">
           {dataArray.map((slide: any) => {

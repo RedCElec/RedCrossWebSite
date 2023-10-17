@@ -27,12 +27,12 @@ export default function CarousselTry() {
                     pagination={true}
                     className="mySwiper"
                     loop={true}>
-                    {data.map((slide: carousselType) => {
+                    {data.map((slide: carousselType, index:number) => {
                         
                         return (
-                            <SwiperSlide key={slide.id}>
+                            <SwiperSlide key={slide.id + "_" + index}>
                                 <div className='relative w-full lg:h-[85vh] md:h-[400px] h-[40vh]'>
-                                    <Image src={slide.image} fill priority alt="error" key={slide.id}/>
+                                    <Image src={slide.image} fill priority alt="error"/>
                                 </div>
                             </SwiperSlide>
                         )

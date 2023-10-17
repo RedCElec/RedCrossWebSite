@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useState, Dispatch, SetStateAction } from 'react'
 import Image from "next/image";
 import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 interface Props {
   key: any,
@@ -14,7 +13,7 @@ export default function ProductCard({ param, setLoading }:Props) {
   const router = useRouter();
 
   //Await Animation
-  const getDomainInfo = async (path) => {
+  const getDomainInfo = async (path: string) => {
       try {
         setLoading(true); // Set loading before sending API request
           const res = await router.push(`/products/${path}`)

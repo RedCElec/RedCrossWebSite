@@ -1,5 +1,6 @@
 
-import { productType, productData } from '../../DATA/productData';
+
+import { productType } from '../../DATA/productData';
 import * as React from "react";
 import { Swiper, SwiperSlide} from "swiper/react"
 import { Navigation, Pagination, FreeMode, Autoplay } from "swiper";
@@ -9,13 +10,13 @@ import "swiper/css/pagination";
 import TestCard from './testCard';
 import { useState, useEffect } from 'react';
 
-export interface combinedProps extends productType {
+export interface combinedProps {
+    numberOfCard: number | null,
     dataArray: productType[],
-    numberOfCard: number,
   }
 
 
-export default function CarousselProduct (props: combinedProps) {
+export default function CarousselProduct (props: combinedProps):JSX.Element {
 
     const { dataArray , numberOfCard } = props;
 
@@ -63,13 +64,14 @@ export default function CarousselProduct (props: combinedProps) {
                 loopedSlides={10}
                 freeMode={true}
                 slidesPerView={isDesktop}>
-                {dataArray.map((slide: any) => {
+                
+                {dataArray.map((slide, index) => {
                     return (
-                        <>
-                            <SwiperSlide key={slide.id}>
-                                <TestCard param={slide} key={slide.id} />
+                        
+                            <SwiperSlide key={slide.id + "_" + index}>
+                                <TestCard param={slide}/>
                             </SwiperSlide>
-                        </>
+                        
 
                     )
                 })}

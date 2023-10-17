@@ -1,9 +1,10 @@
 
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import { productType } from '@/DATA/productData';
 
 
-export default function TestCard ({param}) {
+export default function TestCard ({param}: {param: productType}) {
     
     const router = useRouter();
 

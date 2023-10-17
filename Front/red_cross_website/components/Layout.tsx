@@ -5,39 +5,36 @@ import CenteredLayout from './CenteredLayout';
 import { withChildren, withClassName } from '../config/withs';
 import Footer from './Footer';
 import  Header from './Header'
-import { useSession, signIn, signOut } from 'next-auth/react'
-
+import { useSession } from 'next-auth/react'
 
 
 export type LayoutType = 'centered'
+
+export default function AppLayout({
+
+  type = 'centered', className = '', children,
+}: AppLayoutProps) {
+
 
 
 const LayoutMappings = {
   centered: CenteredLayout,
 };
 
-
-export default function AppLayout({
-  
-
-  type = 'centered', className = '', children,
-}: AppLayoutProps) {
-
   //Hook declaration
   
   const Layout = LayoutMappings[type];
-  const { data: session } = useSession()
   
 
   return (
     <>
-      <Head>
+      <Head >
         <title>RedCross</title>
         <meta name="description" content="To Do List application" />
         <link rel="icon" href="/logo_noir.ico" />
       </Head>
 
-      <Header session/>
+      <Header/>
       <main className="min-h-screen">
         <Layout className={clsx(className, 'pt-20')}>
           {children}

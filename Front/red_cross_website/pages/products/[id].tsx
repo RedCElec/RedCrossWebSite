@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import AppLayout from "../../components/Layout";
 import productData, { productType } from "../../DATA/productData";
@@ -8,9 +9,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { Button } from "@mui/material";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/FavoriteIcon";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
-import CarousselProduct from "@/components/CarousselProduct/CarousselProduct";
+import CarousselProduct, {combinedProps} from "@/components/CarousselProduct/CarousselProduct";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import c from 'clsx'
 import { Mousewheel, Pagination } from 'swiper';
@@ -21,31 +22,29 @@ import 'swiper/css/pagination';
 
 // import required modules
 
-
-
 interface ProductsIDProps {
   data: productType[];
 }
 
-const useScroll = () => {
-  const elRef = useRef(null);
-
-  const executeScroll: any = () =>
-    elRef.current.scrollIntoView({ behavior: "smooth" });
-
-  return [executeScroll, elRef];
-};
-
-
-
 const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
 
-
+  const useScroll = () => {
+    const elRef = useRef<HTMLDivElement>(null);
+  
+    const executeScroll: any = () =>{
+      if(elRef.current != null){
+      elRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    return [executeScroll, elRef];
+  };
+  
   const router = useRouter();
   const { id } = router.query;
   const item = data.find((item: productType) => item.id === Number(id));
   const passingData: productType[] = productData;
   const [executeScroll, elRef] = useScroll();
+  const assPic: number = 3;
 
   const pagination = {
     clickable: true,
@@ -72,7 +71,7 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
           pagination={pagination}
           className="scroll-pt-[20px] w-4/6 h-5/6 flex flex-cols">
 
-          {passingData.slice(0, 3).map((slide: any) => {
+          {passingData.slice(0, assPic).map((slide: any) => {
             return (
 
               <SwiperSlide key={slide.id} className="text-center flex justify-center items-center">
@@ -106,10 +105,10 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
           <h1 className="text-2xl font-semi">{item.infoData.price} $</h1>
 
           <div className="py-8 justify-center">
-            <Button variant="outlined" className="text-red-600 h-14 text-xl p-2 font-bold border-2 border-black rounded-md font-mono mr-4">
+            <Button variant="contained" className="text-white bg-red-600 h-14 text-xl p-2 font-bold rounded-md font-mono mr-4">
               Ajouter au Panier
             </Button>
-            <FavoriteIcon className="border-2 border-black rounded-md text-red-600 w-14 h-14 p-2"></FavoriteIcon>
+            <Button variant="contained" className=" text-white rounded-md bg-red-600 w-14 h-14 p-2"> <FavoriteIcon/> </Button>
           </div>
         </div>
       </div>
@@ -137,7 +136,7 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
 
       <div className='w-5/6'>
         <h1 className="text-5xl font-bold justify-start p-8">Produit Similaire</h1>
-        <CarousselProduct numberOfCard={3} dataArray={passingData} />
+        <CarousselProduct numberOfCard={3} dataArray={passingData}/>
       </div>
 
       <div className='py-12 flex justify-center w-1/2'>
@@ -150,7 +149,7 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
         <iframe
           width="800"
           height="400"
-          src="https://www.youtube.com/embed/m3mdeveWEgw"
+          src="https://www.youtube.com/watch?v=C0JA07W_vRY"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen />
