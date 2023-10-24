@@ -3,9 +3,8 @@ import clsx from 'clsx';
 import CenteredLayout from './CenteredLayout';
 
 import { withChildren, withClassName } from '../config/withs';
-import Footer from './Footer';
-import  Header from './Header'
-import { useSession } from 'next-auth/react'
+import Footer from './Structural/Footer';
+import  Header from './Structural/Header'
 
 
 export type LayoutType = 'centered'

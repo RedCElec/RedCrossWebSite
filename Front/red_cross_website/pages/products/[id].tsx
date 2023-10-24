@@ -1,57 +1,57 @@
 
-import Image from "next/image";
+
+//REACT + NEXTJS IMPORT
+//import required modules
+
 import AppLayout from "../../components/Layout";
 import productData, { productType } from "../../DATA/productData";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import * as React from "react";
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+// IMPORT REACT COMPONENT
+import CarousselProduct from "@/components/CarousselProduct/CarousselProduct";
+import AddToBasket from "@/components/Cart/AddToBasket"
+
+//MUI ICON IMPORT
 import { Button } from "@mui/material";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-import CarousselProduct, {combinedProps} from "@/components/CarousselProduct/CarousselProduct";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import c from 'clsx'
-import { Mousewheel, Pagination } from 'swiper';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 
-// import required modules
+import prisma from '@/prismadb';
+
+
+import VerticalCaroussel from "@/components/VerticalCaroussel/verticalCaroussel";
+
 
 interface ProductsIDProps {
-  data: productType[];
+  data: any
 }
 
 const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
 
   const useScroll = () => {
     const elRef = useRef<HTMLDivElement>(null);
-  
-    const executeScroll: any = () =>{
-      if(elRef.current != null){
-      elRef.current.scrollIntoView({ behavior: "smooth" });
+
+    const executeScroll: any = () => {
+      if (elRef.current != null) {
+        elRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }
     return [executeScroll, elRef];
   };
-  
+
+
   const router = useRouter();
   const { id } = router.query;
-  const item = data.find((item: productType) => item.id === Number(id));
+  const item = data
   const passingData: productType[] = productData;
   const [executeScroll, elRef] = useScroll();
-  const assPic: number = 3;
 
-  const pagination = {
-    clickable: true,
-    renderBullet: () => {
-      return '<p class="flex flex-cols bg-grey-600 gap-2 ' + c("swiper-pagination-bullet", "swiper-pagination-bullet-active") + '"> </p>';
-    },
-  };
+
 
 
   if (!item) {
@@ -62,53 +62,24 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
     <AppLayout type="centered" className="flex flex-col font-mono">
       <div className="grid grid-cols-2 w-[80vw] h-[78vh] pt-12 justify-end z-10">
 
-        <Swiper
-          modules={[Mousewheel, Pagination]}
-          slidesPerView={1}
-          direction={"vertical"}
-          spaceBetween={30}
-          mousewheel={true}
-          pagination={pagination}
-          className="scroll-pt-[20px] w-4/6 h-5/6 flex flex-cols">
-
-          {passingData.slice(0, assPic).map((slide: any) => {
-            return (
-
-              <SwiperSlide key={slide.id} className="text-center flex justify-center items-center">
-                <Image
-                  src={slide.imageData.image}
-                  key={slide.id}
-                  alt="Picture of the author"
-                  width={500}
-                  height={500}
-                />
-              </SwiperSlide>
-            )
-          }
-          )}
-        </Swiper>
+        <VerticalCaroussel></VerticalCaroussel>
 
         <div>
-          <h1 className="text-5xl font-bold">{item.infoData.title} </h1>
+          <h1 className="text-5xl font-bold">{item.title} </h1>
           <h2 className="text-3xl font-semi">Précision de catégorie</h2>
           <div>Nombre d étoile</div>
 
           <div>
-            <div className="my-10">
-              Description Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Cupiditate placeat excepturi aspernatur dolor, hic iste
-              aliquid, quisquam maxime suscipit consequatur saepe unde eveniet.
-              Esse, tenetur a. Dolores exercitationem ipsa porro!
+            <div className="my-2">
+              {item.description}
             </div>
           </div>
 
-          <h1 className="text-2xl font-semi">{item.infoData.price} $</h1>
+          <h1 className="text-2xl font-semi">{item.price} $</h1>
 
           <div className="py-8 justify-center">
-            <Button variant="contained" className="text-white bg-red-600 h-14 text-xl p-2 font-bold rounded-md font-mono mr-4">
-              Ajouter au Panier
-            </Button>
-            <Button variant="contained" className=" text-white rounded-md bg-red-600 w-14 h-14 p-2"> <FavoriteIcon/> </Button>
+            <AddToBasket productId={data.id}></AddToBasket>
+            <Button variant="contained" className=" text-white rounded-md bg-red-600 w-14 h-14 p-2"> <FavoriteIcon /> </Button>
           </div>
         </div>
       </div>
@@ -120,7 +91,6 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
         onClick={executeScroll}
       />
       <p className="justify-self-center text-red-600 pb-8">more infos...</p>
-      
 
 
       <div ref={elRef} className="h-[25vh] w-full bg-red-600 items-center">
@@ -136,7 +106,7 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
 
       <div className='w-5/6'>
         <h1 className="text-5xl font-bold justify-start p-8">Produit Similaire</h1>
-        <CarousselProduct numberOfCard={3} dataArray={passingData}/>
+        <CarousselProduct numberOfCard={3} dataArray={passingData} />
       </div>
 
       <div className='py-12 flex justify-center w-1/2'>
@@ -160,7 +130,12 @@ const ProductsID: NextPage<ProductsIDProps, productType> = ({ data }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = productData.map((item: productType) => ({
+
+  const productCollection = await prisma.product.findMany({
+
+  })
+
+  const paths = productCollection.map((item: any) => ({
     params: { id: String(item.id) },
   }));
 
@@ -170,9 +145,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<ProductsIDProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 
-  const data: productType[] = productData;
+  const id: any = params?.id;
+
+  const productFinder = await prisma.product.findUnique({
+    where: {
+      id: id
+    }
+  })
+
+  const data = productFinder;
 
   return {
     props: {

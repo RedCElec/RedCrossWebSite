@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from '@mui/material';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import { red } from '@mui/material/colors';
+import style from '@/styles/anim.module.css'
 
 
 export default function Fade() {
@@ -35,7 +36,7 @@ export default function Fade() {
 
 
     return (
-        <div className={`w-full h-full absolute z-20 bg-black flex justify-center duration-[1.5s] ease-in-out ${state2 ? "opacity-0" : "opacity-100"}`}>
+        <div className={`w-full h-full fixed z-20 bg-black flex justify-center duration-[1.5s] ease-in-out ${state2 ? "opacity-0" : "opacity-100"} ${style.animatedBackground}`}>
             <div className=" mt-auto mb-auto flex flex-col justify-center items-center mx-auto gap-6">
                 <div className=' relative h-80 w-80'>
                     <Image src='/logo.svg' alt="in btw logo" fill priority className="ease-in duration-500" />

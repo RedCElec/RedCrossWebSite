@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import AppLayout from '../../components/Layout'
 import Image from 'next/image'
-import Footer from '../../components/Footer'
+import Footer from '../../components/Structural/Footer'
 
 
 export default function PrivacyPolicy() {

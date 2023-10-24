@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState, Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import Image from "next/image";
 import StarIcon from '@mui/icons-material/Star';
 
@@ -8,6 +8,7 @@ interface Props {
   param: any,
   setLoading: Dispatch<SetStateAction<boolean>>,
 }
+
 export default function ProductCard({ param, setLoading }:Props) {
 
   const router = useRouter();
@@ -17,16 +18,15 @@ export default function ProductCard({ param, setLoading }:Props) {
       try {
         setLoading(true); // Set loading before sending API request
           const res = await router.push(`/products/${path}`)
-          const response = res; // Response received
-          setLoading(false); // Stop loading
+          const response = res; 
+          setLoading(false);
       } catch (error) {
-        setLoading(false); // Stop loading in case of error
+        setLoading(false); 
           console.error(error);
       }
   };
 
-  
-  const number: number = param.infoData.star;
+  const number: number = 5; // to modify
   let array = [];
   let index: number = 0;
 
@@ -44,13 +44,13 @@ export default function ProductCard({ param, setLoading }:Props) {
         onClick={() => getDomainInfo(param.id)}
       >
         <div className="relative w-[90%] sm:w-1/2 md:w-5/6 h-3/4 bg-black">
-          <Image src={param.imageData.image} fill alt="placeholder" />
+          <Image src={param.image} fill alt="placeholder" />
         </div>
         <div className="p-2">
-          <h1 className="p-2 text-lg text-3xl font-bold ">{param.infoData.title}</h1>
-          <h1>{param.infoData.description}</h1>
+          <h1 className="p-2 text-lg text-3xl font-bold ">{param.title}</h1>
+          <h1>{param.description}</h1>
           <div className="grid grid-cols-2 justify-center items-center">
-            <p className="font-bold">{param.infoData.price} $</p>
+            <p className="font-bold">{param.price} $</p>
             <div className="flex justify-center">
               {array.map((index) => (
                 <StarIcon key={index}/>

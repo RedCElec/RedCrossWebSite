@@ -1,13 +1,10 @@
-// import  {options}  from 'pages/api/auth/[...nextauth]'
-// import { getServerSession } from "next-auth/next"
+import { getSession } from "next-auth/react"
+import type { NextApiRequest, NextApiResponse } from "next"
 
-
-
-// export function getSession(){
-//     return getServerSession(options)
-// }
-
-// export async function getCurrentUser(){
-//     const session = await getSession()
-//     return session?.user.id
-// }
+export default async function session(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const session = await getSession({ req })
+  res.send(JSON.stringify(session, null, 2))
+}

@@ -5,8 +5,8 @@ import bcrypt from "bcrypt";
 import GoogleProvider from "next-auth/providers/google"
 
 
-//export const options:NextAuthOptions = ({
-    export default NextAuth({
+export const options:NextAuthOptions = ({
+    
   providers: [
     GoogleProvider({
         id: "googleAuth",
@@ -18,17 +18,13 @@ import GoogleProvider from "next-auth/providers/google"
       name: "Credentials",
       credentials: {
         email: {
-          label: "email",
+          label: "Email",
           type: "email",
         },
         password: {
-          label: "password",
+          label: "Password",
           type: "password",
         },
-        name: {
-            label: "name",
-            type: "name",
-          },
       },
       authorize: async (credentials, req)=> {
         
@@ -64,24 +60,41 @@ import GoogleProvider from "next-auth/providers/google"
     error: "/",
   },
   callbacks: {
-    session: async ({ session, token, user }) => {
-      if (session?.user) {
-        session.user.id = token.uid;
+    // session: async ({ session, token, user }) => {
+      
+    //   if (session?.user) {
+    //     session.user.id = token.uid;
+    //   }
+    //   return session;
+    // },
+    // jwt: async ({ user, token }) => {
+    //   if (user) {
+    //     token.uid = user.id;
+        
+    //   }
+    //   return token;
+    // },
+    async jwt({ user , token }) {
+      if (user) {  // Note that this if condition is needed
+        token.user={...user}
       }
-      return session;
-    },
-    jwt: async ({ user, token }) => {
-      if (user) {
-        token.uid = user.id;
+      return token
+     },
+    async session({ session, token }) {
+      if (token?.user) { // Note that this if condition is needed
+        session.user = token.user;
       }
-      return token;
+      return session
     },
   },
   session: {
     strategy: "jwt",
+    //maxAge: 1 * 24 * 60 * 60,
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === "development",
 });
 
+
+export default NextAuth(options);
 

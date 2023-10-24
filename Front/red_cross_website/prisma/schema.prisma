@@ -15,5 +15,38 @@ model User {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   email String @unique
   name String?
+  surname String?
   password String
+  Products Product[]
+  Cart Cart[]
+
+}
+
+model Product{
+
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  image String
+  height Int
+  width Int
+  title String
+  description String 
+  category String
+  rating Int
+  price Int
+  User User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @db.ObjectId
+  Cart Cart[]
+  
+}
+
+model Cart {
+  
+  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  productId String @db.ObjectId
+  Product Product @relation(fields: [productId],references: [id], onDelete: Cascade)
+  userId String @db.ObjectId
+  User User @relation(fields: [userId],references: [id],onDelete: Cascade)
+  @@index([productId])
+  @@index([userId])
+  
 }

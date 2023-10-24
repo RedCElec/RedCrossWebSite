@@ -5,13 +5,14 @@ import CarousselTry from '../components/Carousel/CarousselTry'
 import CarousselProduct from '../components/CarousselProduct/CarousselProduct'
 import Fade from '@/components/Animation/Fade'
 import data from '../DATA/productData'
-//import { getCurrentUser }  from '@/lib/session'
 
-const Home: NextPage = () => {
 
-  //const user = getCurrentUser();
-  //console.log(user);
 
+type Props = {}
+
+const Home: NextPage = (props: Props) => {
+
+  
   const visible: boolean = true;
 
   return (
